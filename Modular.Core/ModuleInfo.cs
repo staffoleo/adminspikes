@@ -12,5 +12,10 @@ namespace Modular.Core
     public string SortName => Name.Split('.').Last();
 
     public string Path { get; set; }
+
+    public object Get(object workerOperator)
+    {
+      throw new System.NotImplementedException();
+    }
   }
 }

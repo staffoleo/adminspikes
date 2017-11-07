@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Modular.Core\Modular.Core.csproj" />
+    <ProjectReference Include="..\Spike.WebAdmin.GenderModule\Spike.WebAdmin.GenderModule.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4785,6 +4785,19 @@
         "runtime": {
           "bin/placeholder/Modular.Core.dll": {}
         }
+      },
+      "Spike.WebAdmin.GenderModule/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Modular.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Spike.WebAdmin.GenderModule.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Spike.WebAdmin.GenderModule.dll": {}
+        }
       }
     }
   },
@@ -12583,6 +12596,11 @@
       "type": "project",
       "path": "../Modular.Core/Modular.Core.csproj",
       "msbuildProject": "../Modular.Core/Modular.Core.csproj"
+    },
+    "Spike.WebAdmin.GenderModule/1.0.0": {
+      "type": "project",
+      "path": "../Spike.WebAdmin.GenderModule/Spike.WebAdmin.GenderModule.csproj",
+      "msbuildProject": "../Spike.WebAdmin.GenderModule/Spike.WebAdmin.GenderModule.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12590,7 +12608,8 @@
       "AutoMapper >= 6.1.1",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Modular.Core >= 1.0.0"
+      "Modular.Core >= 1.0.0",
+      "Spike.WebAdmin.GenderModule >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12628,6 +12647,9 @@
           "projectReferences": {
             "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Modular.Core\\Modular.Core.csproj": {
               "projectPath": "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Modular.Core\\Modular.Core.csproj"
+            },
+            "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Spike.WebAdmin.GenderModule\\Spike.WebAdmin.GenderModule.csproj": {
+              "projectPath": "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Spike.WebAdmin.GenderModule\\Spike.WebAdmin.GenderModule.csproj"
             }
           }
         }

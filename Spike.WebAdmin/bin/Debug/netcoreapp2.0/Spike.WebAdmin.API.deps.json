@@ -26,7 +26,8 @@
           "AutoMapper": "6.1.1",
           "Microsoft.AspNetCore.All": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0",
-          "Modular.Core": "1.0.0"
+          "Modular.Core": "1.0.0",
+          "Spike.WebAdmin.GenderModule": "1.0.0"
         },
         "runtime": {
           "Spike.WebAdmin.API.dll": {}
@@ -3832,6 +3833,17 @@
           "Modular.Core.dll": {}
         }
       },
+      "Spike.WebAdmin.GenderModule/1.0.0": {
+        "dependencies": {
+          "Modular.Core": "1.0.0"
+        },
+        "runtime": {
+          "Spike.WebAdmin.GenderModule.dll": {}
+        },
+        "compile": {
+          "Spike.WebAdmin.GenderModule.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0",
@@ -6026,6 +6038,11 @@
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
     },
     "Modular.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Spike.WebAdmin.GenderModule/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

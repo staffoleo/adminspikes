@@ -64,8 +64,6 @@ namespace Spike.WebAdmin.API
         });
       }
 
-
-
       AutoMapper.Mapper.Initialize(cfg =>
       {
         cfg.CreateMap<WorkerOperator, WorkerOperatorDto>();
@@ -75,9 +73,6 @@ namespace Spike.WebAdmin.API
       });
 
       workerOperatorsContext.SeedData();
-
-
-
       app.UseMvc();
     }
 

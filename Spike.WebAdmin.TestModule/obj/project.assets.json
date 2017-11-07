@@ -689,9 +689,9 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Spike.WebAdmin.TestModule\\Spike.WebAdmin.TestModule.csproj",
-      "projectName": "Spike.WebAdmin.TestModule",
-      "projectPath": "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Spike.WebAdmin.TestModule\\Spike.WebAdmin.TestModule.csproj",
+      "projectUniqueName": "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Spike.WebAdmin.TestModule\\Spike.WebAdmin.GenderModule.csproj",
+      "projectName": "Spike.WebAdmin.GenderModule",
+      "projectPath": "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Spike.WebAdmin.TestModule\\Spike.WebAdmin.GenderModule.csproj",
       "packagesPath": "C:\\Users\\staleo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Spike.WebAdmin.TestModule\\obj\\",
       "projectStyle": "PackageReference",

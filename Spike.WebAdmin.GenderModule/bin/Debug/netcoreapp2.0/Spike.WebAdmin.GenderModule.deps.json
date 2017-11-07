@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "Spike.WebAdmin.GenderModule/1.0.0": {
+        "dependencies": {
+          "Modular.Core": "1.0.0"
+        },
+        "runtime": {
+          "Spike.WebAdmin.GenderModule.dll": {}
+        }
+      },
+      "Modular.Core/1.0.0": {
+        "runtime": {
+          "Modular.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Spike.WebAdmin.GenderModule/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modular.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

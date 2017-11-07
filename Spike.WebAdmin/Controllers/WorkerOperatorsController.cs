@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Modular.Core;
 using Spike.WebAdmin.API.Entities;
 using Spike.WebAdmin.API.Models;
 using Spike.WebAdmin.API.Services;
+using System.Linq;
+using Spike.WebAdmin.GenderModule.Services;
 
 namespace Spike.WebAdmin.API.Controllers
 {
@@ -13,12 +16,14 @@ namespace Spike.WebAdmin.API.Controllers
   public class WorkerOperatorsController : Controller
   {
     private readonly IWorkerOperatorsRepository _workerOperatorsRepository;
+    private readonly List<IPlugins<WorkerOperator>> _plugins;
 
     public WorkerOperatorsController(IWorkerOperatorsRepository workerOperatorsRepository)
     {
       _workerOperatorsRepository = workerOperatorsRepository;
+      _plugins = new List<IPlugins<WorkerOperator>>() {new GenderPlugin(), new BirthdayPlugin()};
     }
-    
+
     [HttpGet]
     public IActionResult GetWorkerOperators()
     {
@@ -27,19 +32,35 @@ namespace Spike.WebAdmin.API.Controllers
     }
 
     [HttpGet("{id}", Name = "GetWorkerOperator")]
-    public IActionResult GetWorkerOperators(Guid id)
+    public IActionResult GetWorkerOperator(Guid id)
     {
-      var workerOperatorFromRepo = _workerOperatorsRepository.GetWorkerOperator(id);
-      if (workerOperatorFromRepo == null)
+      var workerOperator = _workerOperatorsRepository.GetWorkerOperator(id);
+
+      var obList = _plugins.Select(module =>new { module = module.Get(workerOperator)}).ToList();
+
+      var dictionary = new Dictionary<string, object>();
+      foreach (var plugin in _plugins)
+      {
+        var result = plugin.Get(workerOperator);
+        workerOperator = result.Entity;
+        dictionary.Add(plugin.Name, result.PluginResult);
+      }
+
+
+      if (workerOperator == null)
       {
         return NotFound();
       }
 
-      return Ok(workerOperatorFromRepo);
+      return Ok(new
+      {
+        workerOperator = workerOperator,
+        obList = dictionary
+      });
     }
 
     [HttpPost]
-    public IActionResult CreateWorkerOperator([FromBody] WorkerOperatorForCreationDto workerOperator )
+    public IActionResult CreateWorkerOperator([FromBody] WorkerOperatorForCreationDto workerOperator)
     {
       if (workerOperator == null)
       {
@@ -56,7 +77,7 @@ namespace Spike.WebAdmin.API.Controllers
       }
 
       var workerOperatorToReturn = Mapper.Map<WorkerOperatorDto>(workerOperatorEntity);
-      return CreatedAtRoute("GetWorkerOperator", new { id = workerOperatorToReturn.Id, workerOperatorToReturn });
+      return CreatedAtRoute("GetWorkerOperator", new {id = workerOperatorToReturn.Id, workerOperatorToReturn});
     }
 
     [HttpDelete("{id}")]
@@ -103,42 +124,5 @@ namespace Spike.WebAdmin.API.Controllers
 
       return NoContent();
     }
-
-    [HttpPatch("{id}")]
-    public IActionResult PartiallyUpdateWorkerOperator(Guid id, [FromBody] JsonPatchDocument<WorkerOperatorForUpdateDto> patchDoc)
-    {
-      if (patchDoc == null)
-      {
-        return BadRequest();
-      }
-
-      var workerOperatorFromRepo = _workerOperatorsRepository.GetWorkerOperator(id);
-      if (workerOperatorFromRepo == null)
-      {
-        return NotFound();
-      }
-
-      var workerOperatorToPatch = Mapper.Map<WorkerOperatorForUpdateDto>(workerOperatorFromRepo);
-      patchDoc.ApplyTo(workerOperatorToPatch, ModelState);
-
-      TryValidateModel(workerOperatorToPatch);
-
-      if (!ModelState.IsValid)
-      {
-        return BadRequest();
-      }
-
-      Mapper.Map(workerOperatorToPatch, workerOperatorFromRepo);
-
-      _workerOperatorsRepository.UpdateWorkerOperator(workerOperatorFromRepo);
-
-      if (_workerOperatorsRepository.Save())
-      {
-        throw new Exception($"Patching workerOperator {id} failed on save.");
-      }
-
-      return NoContent();
-    }
-
   }
 }
