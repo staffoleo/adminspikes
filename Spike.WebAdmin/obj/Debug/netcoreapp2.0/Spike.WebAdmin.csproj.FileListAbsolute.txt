@@ -9,3 +9,5 @@ C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Spike.WebAd
 C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Spike.WebAdmin\obj\Debug\netcoreapp2.0\Spike.WebAdmin.AssemblyInfo.cs
 C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Spike.WebAdmin\obj\Debug\netcoreapp2.0\Spike.WebAdmin.API.dll
 C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Spike.WebAdmin\obj\Debug\netcoreapp2.0\Spike.WebAdmin.API.pdb
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Spike.WebAdmin\bin\Debug\netcoreapp2.0\Modular.Core.dll
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Spike.WebAdmin\bin\Debug\netcoreapp2.0\Modular.Core.pdb

@@ -4775,6 +4775,16 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "Modular.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Modular.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Modular.Core.dll": {}
+        }
       }
     }
   },
@@ -12568,13 +12578,19 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "Modular.Core/1.0.0": {
+      "type": "project",
+      "path": "../Modular.Core/Modular.Core.csproj",
+      "msbuildProject": "../Modular.Core/Modular.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.1.1",
       "Microsoft.AspNetCore.All >= 2.0.0",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "Modular.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12609,7 +12625,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Modular.Core\\Modular.Core.csproj": {
+              "projectPath": "C:\\Users\\staleo\\Documents\\Visual Studio 2017\\Projects\\Spike.WebAdmin\\Modular.Core\\Modular.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

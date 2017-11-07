@@ -1,0 +1,11 @@
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\bin\Debug\netcoreapp2.0\Modular.Core.deps.json
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\bin\Debug\netcoreapp2.0\Modular.Core.dll
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\bin\Debug\netcoreapp2.0\Modular.Core.pdb
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\bin\Debug\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\bin\Debug\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\obj\Debug\netcoreapp2.0\Modular.Core.csprojResolveAssemblyReference.cache
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\obj\Debug\netcoreapp2.0\Modular.Core.csproj.CoreCompileInputs.cache
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\obj\Debug\netcoreapp2.0\Modular.Core.AssemblyInfoInputs.cache
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\obj\Debug\netcoreapp2.0\Modular.Core.AssemblyInfo.cs
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\obj\Debug\netcoreapp2.0\Modular.Core.dll
+C:\Users\staleo\Documents\Visual Studio 2017\Projects\Spike.WebAdmin\Modular.Core\obj\Debug\netcoreapp2.0\Modular.Core.pdb
