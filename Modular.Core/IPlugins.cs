@@ -1,4 +1,6 @@
-﻿namespace Modular.Core
+﻿using System;
+
+namespace Modular.Core
 {
   public class Composite<T>
   {
@@ -8,7 +10,8 @@
 
   public interface IPlugins<T>
   {
+    string Name { get; }
+
     Composite<T> Get(T entity);
-    string Name { get;  }
   }
 }
