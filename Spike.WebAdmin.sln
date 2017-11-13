@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.WebAdmin", "Spike.WebAdmin\Spike.WebAdmin.csproj", "{01BEBFD5-323F-4199-B681-E190CBD69358}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spike.WebAdmin", "Spike.WebAdmin\Spike.WebAdmin.csproj", "{01BEBFD5-323F-4199-B681-E190CBD69358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modular.Core", "Modular.Core\Modular.Core.csproj", "{6531CB1D-7270-4BA2-BE2A-867286C34E63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modular.Core", "Modular.Core\Modular.Core.csproj", "{6531CB1D-7270-4BA2-BE2A-867286C34E63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{54073FB6-ACDF-4AE2-AAB8-49D84DC84F3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.WebAdmin.TestModule", "Spike.WebAdmin.TestModule\Spike.WebAdmin.TestModule.csproj", "{DB203D4B-9111-4EB7-9460-E2E941140EA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spike.WebAdmin.TestModule", "Spike.WebAdmin.TestModule\Spike.WebAdmin.TestModule.csproj", "{DB203D4B-9111-4EB7-9460-E2E941140EA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.WebAdmin.GenderModule", "Spike.WebAdmin.GenderModule\Spike.WebAdmin.GenderModule.csproj", "{D85741BB-AFA4-4A91-8DE3-7252F1298725}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spike.WebAdmin.GenderModule", "Spike.WebAdmin.GenderModule\Spike.WebAdmin.GenderModule.csproj", "{D85741BB-AFA4-4A91-8DE3-7252F1298725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.WebAdmin.BirthdayModule", "Spike.WebAdmin.BirthdayModule\Spike.WebAdmin.BirthdayModule.csproj", "{73695062-F7C0-4E8F-ADF3-E00A70291EEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{D85741BB-AFA4-4A91-8DE3-7252F1298725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D85741BB-AFA4-4A91-8DE3-7252F1298725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D85741BB-AFA4-4A91-8DE3-7252F1298725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73695062-F7C0-4E8F-ADF3-E00A70291EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73695062-F7C0-4E8F-ADF3-E00A70291EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73695062-F7C0-4E8F-ADF3-E00A70291EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73695062-F7C0-4E8F-ADF3-E00A70291EEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DB203D4B-9111-4EB7-9460-E2E941140EA6} = {54073FB6-ACDF-4AE2-AAB8-49D84DC84F3A}
 		{D85741BB-AFA4-4A91-8DE3-7252F1298725} = {54073FB6-ACDF-4AE2-AAB8-49D84DC84F3A}
+		{73695062-F7C0-4E8F-ADF3-E00A70291EEA} = {54073FB6-ACDF-4AE2-AAB8-49D84DC84F3A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {772421F1-09DD-4055-B68B-F22F9959619C}
