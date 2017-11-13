@@ -8,7 +8,9 @@ using Spike.WebAdmin.API.Entities;
 using Spike.WebAdmin.API.Models;
 using Spike.WebAdmin.API.Services;
 using System.Linq;
-using Spike.WebAdmin.GenderModule.Services;
+using Newtonsoft.Json;
+using Spike.WebAdmin.BirthdayModule;
+using Spike.WebAdmin.GenderModule;
 
 namespace Spike.WebAdmin.API.Controllers
 {
@@ -21,7 +23,7 @@ namespace Spike.WebAdmin.API.Controllers
     public WorkerOperatorsController(IWorkerOperatorsRepository workerOperatorsRepository)
     {
       _workerOperatorsRepository = workerOperatorsRepository;
-      _plugins = new List<IPlugins<WorkerOperator>>() {new GenderPlugin(), new BirthdayPlugin()};
+      _plugins = new List<IPlugins<WorkerOperator>> {new GenderPlugin(), new BirthdayPlugin()};
     }
 
     [HttpGet]
@@ -36,41 +38,49 @@ namespace Spike.WebAdmin.API.Controllers
     {
       var workerOperator = _workerOperatorsRepository.GetWorkerOperator(id);
 
-      var obList = _plugins.Select(module =>new { module = module.Get(workerOperator)}).ToList();
+      if (workerOperator == null)
+      {
+        return NotFound();
+      }
 
-      var dictionary = new Dictionary<string, object>();
+      var dictionary = new Dictionary<string, object> {{"workerOperator", workerOperator}};
       foreach (var plugin in _plugins)
       {
         var result = plugin.Get(workerOperator);
         workerOperator = result.Entity;
         dictionary.Add(plugin.Name, result.PluginResult);
       }
-
-
-      if (workerOperator == null)
-      {
-        return NotFound();
-      }
-
-      return Ok(new
-      {
-        workerOperator = workerOperator,
-        obList = dictionary
-      });
+      
+      return Ok(dictionary);
     }
 
     [HttpPost]
-    public IActionResult CreateWorkerOperator([FromBody] WorkerOperatorForCreationDto workerOperator)
+    public IActionResult CreateWorkerOperator([FromBody] Dictionary<string, object> workerOperator)
     {
-      if (workerOperator == null)
+      if (workerOperator == null || !workerOperator.ContainsKey("workerOperator"))
       {
         BadRequest();
       }
 
-      var workerOperatorEntity = Mapper.Map<WorkerOperator>(workerOperator);
+      var workerOperatorForCreationDto = JsonConvert.DeserializeObject<WorkerOperatorForCreationDto>(workerOperator["workerOperator"].ToString());
+      var workerOperatorEntity = Mapper.Map<WorkerOperator>(workerOperatorForCreationDto);
+
+      var result = new List<Composite<WorkerOperator>>();
+
+      foreach (var plugin in _plugins)
+      {
+        Type t = plugin.GetType();
+        var composite = new Composite<WorkerOperator>
+        {
+          Entity = workerOperatorEntity,
+          PluginResult = JsonConvert.DeserializeObject(workerOperator[plugin.Name].ToString(), t)
+        };
+
+        result.Add(composite);
+      }
+
       _workerOperatorsRepository.AddWorkerOperator(workerOperatorEntity);
-
-
+      
       if (!_workerOperatorsRepository.Save())
       {
         throw new Exception("Creating a workerOperator failed on save");
@@ -78,51 +88,6 @@ namespace Spike.WebAdmin.API.Controllers
 
       var workerOperatorToReturn = Mapper.Map<WorkerOperatorDto>(workerOperatorEntity);
       return CreatedAtRoute("GetWorkerOperator", new {id = workerOperatorToReturn.Id, workerOperatorToReturn});
-    }
-
-    [HttpDelete("{id}")]
-    public IActionResult DeleteWorkerOperator(Guid id)
-    {
-      var workerOperatorFromRepo = _workerOperatorsRepository.GetWorkerOperator(id);
-      if (workerOperatorFromRepo == null)
-      {
-        return NotFound();
-      }
-
-      _workerOperatorsRepository.DeleteWorkerOperator(workerOperatorFromRepo);
-
-      if (!_workerOperatorsRepository.Save())
-      {
-        throw new Exception($"Deleting workerOperator {id} failed on save");
-      }
-
-      return NoContent();
-    }
-
-    [HttpPut("{id}")]
-    public IActionResult UpdateWorkerOperator(Guid id, [FromBody] WorkerOperatorForUpdateDto workerOperator)
-    {
-      if (workerOperator == null)
-      {
-        return BadRequest();
-      }
-
-      var workerOperatorFromRepo = _workerOperatorsRepository.GetWorkerOperator(id);
-      if (workerOperatorFromRepo == null)
-      {
-        return NotFound();
-      }
-
-      Mapper.Map(workerOperator, workerOperatorFromRepo);
-
-      _workerOperatorsRepository.UpdateWorkerOperator(workerOperatorFromRepo);
-
-      if (_workerOperatorsRepository.Save())
-      {
-        throw new Exception($"Updating WorkerOperator {id} failed on save.");
-      }
-
-      return NoContent();
     }
   }
 }
