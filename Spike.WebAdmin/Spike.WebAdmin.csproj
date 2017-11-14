@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="Dapper" Version="1.50.4-alpha1-00070" />
+    <PackageReference Include="Dapper.FastCrud" Version="2.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
   </ItemGroup>
 
@@ -21,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Modular.Core\Modular.Core.csproj" />
+    <ProjectReference Include="..\Spike.WebAdmin.BirthdayModule\Spike.WebAdmin.BirthdayModule.csproj" />
     <ProjectReference Include="..\Spike.WebAdmin.GenderModule\Spike.WebAdmin.GenderModule.csproj" />
   </ItemGroup>
 

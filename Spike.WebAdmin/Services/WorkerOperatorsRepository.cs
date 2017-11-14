@@ -16,18 +16,18 @@ namespace Spike.WebAdmin.API.Services
 
     public IEnumerable<WorkerOperator> GetWorkerOperators()
     {
-      return _context.WorkerOperators.OrderBy(x => x.Code);
+      return _context.GetWorkerOperators();
     }
 
     public WorkerOperator GetWorkerOperator(Guid workerOperatorId)
     {
-      return _context.WorkerOperators.FirstOrDefault(a => a.Id == workerOperatorId);
+      return _context.GetWorkerOperator(workerOperatorId.ToString());
     }
 
     public void AddWorkerOperator(WorkerOperator workerOperator)
     {
-      workerOperator.Id = Guid.NewGuid();
-      _context.WorkerOperators.Add(workerOperator);
+      workerOperator.Id = Guid.NewGuid().ToString();
+      _context.SaveWorkerOperator(workerOperator);
     }
 
     public void DeleteWorkerOperator(WorkerOperator workerOperator)
@@ -42,7 +42,7 @@ namespace Spike.WebAdmin.API.Services
 
     public bool WorkerOperatorExists(Guid workerOperatorId)
     {
-      return _context.WorkerOperators.Any(a => a.Id == workerOperatorId);
+      return _context.WorkerOperators.Any(a => a.Id == workerOperatorId.ToString());
     }
 
     public bool Save()

@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Spike.WebAdmin.API.Entities
 {
+  [Table("Operator")]
   public class WorkerOperator
   {
+    //string -> Guid is not supported by Sqlite
     [Key]
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
     [Required]
     public string Code { get; set; }

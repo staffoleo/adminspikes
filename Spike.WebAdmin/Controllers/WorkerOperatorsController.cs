@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Modular.Core;
 using Spike.WebAdmin.API.Entities;
 using Spike.WebAdmin.API.Models;
 using Spike.WebAdmin.API.Services;
-using System.Linq;
 using Newtonsoft.Json;
 using Spike.WebAdmin.BirthdayModule;
 using Spike.WebAdmin.GenderModule;
